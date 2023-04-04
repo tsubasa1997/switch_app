@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:switch_app/remote_controller_screen.dart';
-import 'package:switch_app/sign/welcome_screen.dart';
+import 'package:switch_app/screen/home_screen.dart';
 
 class AppColor {
   static const brand = Colors.blue;
@@ -29,7 +28,7 @@ class App extends StatelessWidget {
         //     .textTheme
         //     .apply(bodyColor: Colors.white, displayColor: Colors.white),
       ),
-      home: const RemoteControllerScreen(id: 'T1ciEjNaQVL0SCC47ZCt',),
+      home: const HomeScreen(id: 'T1ciEjNaQVL0SCC47ZCt',),
     );
   }
 }

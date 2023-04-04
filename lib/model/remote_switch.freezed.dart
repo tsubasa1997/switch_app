@@ -21,6 +21,8 @@ RemoteSwitch _$RemoteSwitchFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RemoteSwitch {
   bool get switching => throw _privateConstructorUsedError;
+  int get temp => throw _privateConstructorUsedError;
+  bool get mode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,7 @@ abstract class $RemoteSwitchCopyWith<$Res> {
           RemoteSwitch value, $Res Function(RemoteSwitch) then) =
       _$RemoteSwitchCopyWithImpl<$Res, RemoteSwitch>;
   @useResult
-  $Res call({bool switching});
+  $Res call({bool switching, int temp, bool mode});
 }
 
 /// @nodoc
@@ -51,11 +53,21 @@ class _$RemoteSwitchCopyWithImpl<$Res, $Val extends RemoteSwitch>
   @override
   $Res call({
     Object? switching = null,
+    Object? temp = null,
+    Object? mode = null,
   }) {
     return _then(_value.copyWith(
       switching: null == switching
           ? _value.switching
           : switching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      temp: null == temp
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as int,
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -69,7 +81,7 @@ abstract class _$$_RemoteSwitchCopyWith<$Res>
       __$$_RemoteSwitchCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool switching});
+  $Res call({bool switching, int temp, bool mode});
 }
 
 /// @nodoc
@@ -84,11 +96,21 @@ class __$$_RemoteSwitchCopyWithImpl<$Res>
   @override
   $Res call({
     Object? switching = null,
+    Object? temp = null,
+    Object? mode = null,
   }) {
     return _then(_$_RemoteSwitch(
       switching: null == switching
           ? _value.switching
           : switching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      temp: null == temp
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as int,
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -97,17 +119,22 @@ class __$$_RemoteSwitchCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RemoteSwitch with DiagnosticableTreeMixin implements _RemoteSwitch {
-  const _$_RemoteSwitch({required this.switching});
+  const _$_RemoteSwitch(
+      {required this.switching, required this.temp, required this.mode});
 
   factory _$_RemoteSwitch.fromJson(Map<String, dynamic> json) =>
       _$$_RemoteSwitchFromJson(json);
 
   @override
   final bool switching;
+  @override
+  final int temp;
+  @override
+  final bool mode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RemoteSwitch(switching: $switching)';
+    return 'RemoteSwitch(switching: $switching, temp: $temp, mode: $mode)';
   }
 
   @override
@@ -115,7 +142,9 @@ class _$_RemoteSwitch with DiagnosticableTreeMixin implements _RemoteSwitch {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'RemoteSwitch'))
-      ..add(DiagnosticsProperty('switching', switching));
+      ..add(DiagnosticsProperty('switching', switching))
+      ..add(DiagnosticsProperty('temp', temp))
+      ..add(DiagnosticsProperty('mode', mode));
   }
 
   @override
@@ -124,12 +153,14 @@ class _$_RemoteSwitch with DiagnosticableTreeMixin implements _RemoteSwitch {
         (other.runtimeType == runtimeType &&
             other is _$_RemoteSwitch &&
             (identical(other.switching, switching) ||
-                other.switching == switching));
+                other.switching == switching) &&
+            (identical(other.temp, temp) || other.temp == temp) &&
+            (identical(other.mode, mode) || other.mode == mode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, switching);
+  int get hashCode => Object.hash(runtimeType, switching, temp, mode);
 
   @JsonKey(ignore: true)
   @override
@@ -146,14 +177,20 @@ class _$_RemoteSwitch with DiagnosticableTreeMixin implements _RemoteSwitch {
 }
 
 abstract class _RemoteSwitch implements RemoteSwitch {
-  const factory _RemoteSwitch({required final bool switching}) =
-      _$_RemoteSwitch;
+  const factory _RemoteSwitch(
+      {required final bool switching,
+      required final int temp,
+      required final bool mode}) = _$_RemoteSwitch;
 
   factory _RemoteSwitch.fromJson(Map<String, dynamic> json) =
       _$_RemoteSwitch.fromJson;
 
   @override
   bool get switching;
+  @override
+  int get temp;
+  @override
+  bool get mode;
   @override
   @JsonKey(ignore: true)
   _$$_RemoteSwitchCopyWith<_$_RemoteSwitch> get copyWith =>

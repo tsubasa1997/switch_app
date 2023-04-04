@@ -26,7 +26,14 @@ class SwitchStateNotifier extends StateNotifier<SwitchState> {
   Future<void> updateRemoteSwitch({
     required String id,
     required bool switching,
+    required int temp,
+    required bool mode
   }) async {
-    await _repository.updateRemoteSwitch(id: id, switching: switching);
+    await _repository.updateRemoteSwitch(
+      id: id,
+      switching: switching,
+      temp: temp,
+      mode: mode,
+    );
   }
 }

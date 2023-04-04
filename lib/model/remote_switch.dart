@@ -9,6 +9,8 @@ part 'remote_switch.g.dart';
 class RemoteSwitch with _$RemoteSwitch {
   const factory RemoteSwitch({
     required bool switching,
+    required int temp,
+    required bool mode,
   }) = _RemoteSwitch;
 
   factory RemoteSwitch.fromJson(Map<String, dynamic> json) => _$RemoteSwitchFromJson(json);

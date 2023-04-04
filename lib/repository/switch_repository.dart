@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../datasource/firebase_datasource.dart';
-import '../model/chat.dart';
 import '../model/remote_switch.dart';
 
 final switchRepositoryProvider = Provider(
@@ -15,16 +14,12 @@ class SwitchRepository {
 
   FirestoreDatasource get _remote => ref.read(firestoreDatasourceProvider);
 
-  Stream<Chat> listenChat(String id) async* {
-    yield* _remote.listenChat(id).map(
-          (event) => Chat(message: event.message),
-        );
-  }
-
   Stream<RemoteSwitch> listenRemoteSwitch(String id) async* {
     yield* _remote.listenRemoteSwitch(id).map(
           (event) => RemoteSwitch(
             switching: event.switching,
+            temp: event.temp,
+            mode: event.mode,
           ),
         );
   }
@@ -32,8 +27,10 @@ class SwitchRepository {
   Future<void> updateRemoteSwitch({
     required String id,
     required bool switching,
+    required int temp,
+    required bool mode,
   }) async {
-    final remoteSwitch = RemoteSwitch(switching: switching);
+    final remoteSwitch = RemoteSwitch(switching: switching, temp: temp, mode: mode,);
     await _remote.updateRemoteSwitch(id, remoteSwitch);
   }
 
